@@ -1,23 +1,11 @@
 export const authors = [
   {
-    name: "Faraz Patankar",
-    image: "https://og.railway.app/authors/faraz-patankar.jpeg",
+    name: "Showfom",
+    image: "https://s3.rsb.net/showfom.jpeg",
   },
   {
-    name: "Jake Cooper",
-    image: "https://og.railway.app/authors/jake-cooper.jpeg",
-  },
-  {
-    name: "Greg Schier",
-    image: "https://og.railway.app/authors/greg-schier.jpeg",
-  },
-  {
-    name: "Jake Runzer",
-    image: "https://og.railway.app/authors/jake-runzer.jpeg",
-  },
-  {
-    name: "Angelo Saraceno",
-    image: "https://og.railway.app/authors/angelo-saraceno.jpeg",
+    name: "宝硕",
+    image: "https://s3.rsb.net/images/baoshuo.jpeg",
   }
 ];
 
