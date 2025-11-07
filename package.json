@@ -21,6 +21,7 @@
     "react-dom": "^19.2.0",
     "react-feather": "^2.0.10",
     "styled-components": "^6.1.19",
+    "sharp": "^0.34.4",
     "theme-custom-properties": "^1.0.0",
     "twemoji": "14.0.2",
     "use-local-storage-state": "^19.5.0"

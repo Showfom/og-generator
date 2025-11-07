@@ -7,7 +7,7 @@ A dynamic Open Graph (OG) image generator service built with Next.js. Generate b
 - 🎨 **Multiple Layout Templates** - Choose from various pre-designed layouts (Simple, Railway, Blog, Docs, Pattern, Starter)
 - ⚡ **Real-time Preview** - See your OG image update as you configure it
 - 🎭 **Fully Customizable** - Adjust text, colors, themes, and more
-- 📱 **Export Formats** - Generate images in PNG or JPEG format
+- 📱 **Export Formats** - Generate images in PNG, JPEG, WebP, or AVIF format
 - 🌙 **Dark Theme UI** - Modern dark interface for comfortable viewing
 - 🔗 **Direct URLs** - Each configuration generates a unique URL for easy sharing
 
@@ -43,6 +43,19 @@ yarn install
 cp .env.example .env
 # Then edit .env with your custom values (optional)
 ```
+
+### Linux System Dependencies
+
+When running the renderer on Linux servers (e.g., Debian or Ubuntu), install system packages for Chromium and full Noto font coverage so Puppeteer can launch correctly and render CJK/emoji glyphs without missing-character boxes:
+
+```bash
+sudo apt update
+sudo apt install chromium
+# Install Noto fonts plus all recommended subsets for CJK + emoji coverage
+sudo apt install --install-recommends fonts-noto
+```
+
+Install the fonts command even if you do not need Chinese or Japanese immediately—Emoji glyphs are also shipped through the Noto family.
 
 ### Development
 
@@ -83,13 +96,13 @@ yarn start
 
 ## API Endpoints
 
-- `/api/image` - Returns the generated OG image (PNG/JPEG)
+- `/api/image` - Returns the generated OG image (PNG/JPEG/WebP/AVIF)
 - `/api/html` - Returns the HTML that will be rendered as an image (useful for debugging)
 
 ### Example
 
 ```
-/api/image?layoutName=Simple&Text=Hello%20World&fileType=png
+/api/image?layoutName=Simple&Text=Hello%20World&fileType=webp
 ```
 
 ## Project Structure
@@ -148,6 +161,7 @@ Major enhancements include:
 - Dark theme implementation
 - Improved TypeScript support
 - Bug fixes and compatibility updates
+- Modern image outputs (WebP default with optional AVIF/PNG/JPEG)
 
 ## License
 

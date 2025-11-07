@@ -1,5 +1,3 @@
-const colors = require("tailwindcss/colors");
-
 const customColors = {
   transparent: "transparent",
   bg: "#f8f9fa",
@@ -8,17 +6,19 @@ const customColors = {
 };
 
 module.exports = {
-  purge: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/layouts/**/*.{js,ts,jsx,tsx}",
+    "./src/hooks/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: "class", // 'media' or 'class'
   theme: {
     fontFamily: {
       sans: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
     },
-    colors: {
-      ...colors,
-      ...customColors,
-      white: colors.white,
-      black: colors.black,
+    extend: {
+      colors: customColors,
     },
   },
   variants: {

@@ -14,6 +14,8 @@ import { useLayoutConfig } from "../hooks/useLayoutConfig";
 import { layouts } from "../layouts";
 import { FileType } from "../types";
 
+const FILE_TYPE_OPTIONS: FileType[] = ["png", "jpeg", "webp", "avif"];
+
 const Home: NextPage = () => {
   const isMounted = useIsMounted();
 
@@ -61,7 +63,7 @@ export const Config: React.FC = () => {
         <Label>File type</Label>
         <Select
           value={fileType}
-          options={[{ value: "png" }, { value: "jpeg" }]}
+          options={FILE_TYPE_OPTIONS.map(value => ({ value }))}
           onChange={fileType =>
             setConfig(c => ({ ...c, fileType: fileType as FileType }))
           }

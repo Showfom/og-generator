@@ -3,7 +3,7 @@ import { layouts } from "../layouts";
 import { IConfig } from "../types";
 
 export const defaultConfig: IConfig = {
-  fileType: "png",
+  fileType: "webp",
   layoutName: layouts[0].name,
 };
 

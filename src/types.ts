@@ -1,6 +1,6 @@
 import React from "react";
 
-export type FileType = "png" | "jpeg";
+export type FileType = "png" | "jpeg" | "webp" | "avif";
 
 export interface IConfig {
   fileType: FileType;
