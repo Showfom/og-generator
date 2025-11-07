@@ -1,6 +1,5 @@
 import React from "react";
 import "twin.macro";
-import { UpdateState } from "use-local-storage-state/src/useLocalStorageStateBase";
 import { useLayoutConfig } from "../hooks/useLayoutConfig";
 import {
   ILayout,

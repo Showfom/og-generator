@@ -20,8 +20,8 @@ const Home: NextPage = () => {
   return (
     <main tw="px-6 pb-20 max-w-6xl w-full mx-auto">
       <header tw="text-center mt-20 mb-12 space-y-6">
-        <h1 tw="text-5xl font-bold">Railway OG Image Generator</h1>
-        <h2 tw="text-xl text-gray-600">
+        <h1 tw="text-5xl font-bold">SB OG Image Generator</h1>
+        <h2 tw="text-xl" style={{ color: '#9ca3af' }}>
           Dynamic open graph images for fun and profit
         </h2>
       </header>
@@ -33,57 +33,6 @@ const Home: NextPage = () => {
           <Viewer />
         </section>
       )}
-
-      <section tw="mt-16 grid gap-8 grid-cols-1 md:grid-cols-2">
-        <div>
-          <H2>What is This?</H2>
-          <P>
-            This service dynamically generates{" "}
-            <StyledLink href="https://ogp.me/">Open Graph</StyledLink> images to
-            be used in HTML meta tags. OG images are the images you see when you
-            share a link on Twitter or Discord.
-          </P>
-
-          <P>
-            <pre tw="pl-4 text-sm break-all overflow-hidden overflow-ellipsis">{`<meta property="og:image" content="{URL to this site}" />`}</pre>
-          </P>
-
-          <P>
-            The design and implementation of this site is heavily inspired by{" "}
-            <StyledLink href="https://github.com/vercel/og-image">
-              Vercel's OG image generator
-            </StyledLink>
-            .
-          </P>
-        </div>
-
-        <div>
-          <H2>Make it Your Own</H2>
-
-          <P>
-            This generator is{" "}
-            <StyledLink href="https://github.com/railwayapp/og-generator">
-              open source on GitHub
-            </StyledLink>{" "}
-            and has been designed to be easily customizable.
-          </P>
-
-          <P>
-            Get started by deploying to{" "}
-            <StyledLink href="https://railway.app">Railway</StyledLink> with
-            1-click.
-          </P>
-
-          <P>
-            <Link href="https://railway.app/new?template=https%3A%2F%2Fgithub.com%2Frailwayapp%2Fog-generator">
-              <img
-                src="https://railway.app/button.svg"
-                alt="Deploy on Railway"
-              />
-            </Link>
-          </P>
-        </div>
-      </section>
     </main>
   );
 };

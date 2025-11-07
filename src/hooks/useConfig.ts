@@ -1,4 +1,4 @@
-import { createLocalStorageStateHook } from "use-local-storage-state";
+import useLocalStorageState from "use-local-storage-state";
 import { layouts } from "../layouts";
 import { IConfig } from "../types";
 
@@ -7,7 +7,7 @@ export const defaultConfig: IConfig = {
   layoutName: layouts[0].name,
 };
 
-export const useConfig = createLocalStorageStateHook<IConfig>(
+export const useConfig = () => useLocalStorageState<IConfig>(
   "config",
-  defaultConfig,
+  { defaultValue: defaultConfig },
 );

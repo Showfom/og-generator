@@ -2,10 +2,9 @@ import NLink from "next/link";
 import React, { useMemo } from "react";
 import "twin.macro";
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
   external?: boolean;
-  className?: string;
 }
 
 const isExternalLink = (href: string) =>
@@ -31,8 +30,8 @@ export const Link: React.FC<Props> = ({
   }
 
   return (
-    <NLink href={href} passHref>
-      <a {...props}>{children}</a>
+    <NLink href={href} {...props}>
+      {children}
     </NLink>
   );
 };

@@ -3,9 +3,16 @@ import { Link } from "./Link";
 import "twin.macro";
 
 export const Footer: React.FC = () => (
-  <footer tw="flex w-full py-10 mx-auto">
-    <Link tw="mt-2 md:mt-0" href="/">
-      <span tw="text-accent">♥</span>️
-    </Link>
+  <footer tw="flex justify-center w-full py-10 mx-auto">
+    <div tw="text-center" style={{ color: '#9ca3af' }}>
+      Forked from{" "}
+      <Link
+        href="https://github.com/railwayapp/og-generator"
+        external
+        tw="text-accent hover:underline"
+      >
+        railwayapp/og-generator
+      </Link>
+    </div>
   </footer>
 );

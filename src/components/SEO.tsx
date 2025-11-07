@@ -1,7 +1,6 @@
 import * as React from "react";
-import { DefaultSeo, NextSeo, NextSeoProps } from "next-seo";
+import { generateDefaultSeo, generateNextSeo, type NextSeoProps, type DefaultSeoProps } from "next-seo/pages";
 import Head from "next/head";
-import { DefaultSeoProps } from "next-seo";
 
 export interface Props extends NextSeoProps {
   title?: string;
@@ -9,9 +8,9 @@ export interface Props extends NextSeoProps {
   image?: string;
 }
 
-const title = "Railway OG Image Generator";
+const title = "SB OG Image Generator";
 export const url = "";
-const description = "Service that generates dynamic OG images for railway.app";
+const description = "Service that generates dynamic OG images";
 
 // Generate OG image for itself
 const image =
@@ -36,24 +35,23 @@ export const SEO: React.FC<Props> = ({ image, ...props }) => {
   const title = props.title ?? config.title;
   const description = props.description || config.description;
 
+  const nextSeoProps = {
+    ...props,
+    ...(image == null
+      ? {}
+      : {
+          openGraph: {
+            images: [{ url: image }],
+          },
+        })
+  };
+
   return (
     <>
-      <DefaultSeo {...config} />
-
-      <NextSeo
-        {...props}
-        {...(image == null
-          ? {}
-          : {
-              openGraph: {
-                images: [{ url: image }],
-              },
-            })}
-      />
-
       <Head>
+        {generateDefaultSeo(config)}
+        {generateNextSeo(nextSeoProps)}
         <title>{title}</title>
-
         <meta name="description" content={description} />
       </Head>
     </>

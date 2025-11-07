@@ -1,5 +1,5 @@
 import twemoji from "twemoji";
-import marked from "marked";
+import { marked } from "marked";
 import { ILayoutConfig } from "../types";
 import React from "react";
 import { defaultTheme } from "./colours";
@@ -11,7 +11,7 @@ export const emojify = (text: string): string =>
     ext: ".svg",
   });
 
-export const mdToHTML = (text: string): string => marked(text);
+export const mdToHTML = (text: string): string => marked.parse(text, { async: false }) as string;
 
 export const gString = (
   layoutConfig: ILayoutConfig,

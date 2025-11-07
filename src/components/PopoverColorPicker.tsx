@@ -13,10 +13,13 @@ export const PopoverColorPicker: React.FC<Props> = ({ color, onChange }) => {
     <Popover.Root>
       <Popover.Trigger
         css={[
-          tw`w-full h-9 rounded border hover:border-gray-400`,
+          tw`w-full h-9 rounded border`,
           tw`focus:outline-none focus:border-transparent focus:ring-2 focus:ring-accent`,
-          { backgroundColor: color },
+          { backgroundColor: color, borderColor: '#30363d' },
         ]}
+        style={{
+          borderColor: '#30363d',
+        }}
       />
 
       <Popover.Content>

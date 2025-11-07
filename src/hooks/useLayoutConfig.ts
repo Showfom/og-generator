@@ -2,9 +2,9 @@ import { getDefaultLayout, layouts } from "../layouts";
 import { useConfig } from "./useConfig";
 import { useMemo } from "react";
 import { ILayoutConfig } from "../types";
-import { createLocalStorageStateHook } from "use-local-storage-state";
+import useLocalStorageState from "use-local-storage-state";
 
-const useAllLayoutConfigs = createLocalStorageStateHook("layout-configs", {});
+const useAllLayoutConfigs = () => useLocalStorageState("layout-configs", { defaultValue: {} });
 
 export const useLayoutConfig = (): [
   ILayoutConfig,

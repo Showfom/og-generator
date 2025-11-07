@@ -40,14 +40,19 @@ export const Select = React.forwardRef<HTMLSelectElement, Props>(
           name={name}
           className={classnames("select", { [`select-${name}`]: name != null })}
           css={[
-            tw`bg-transparent w-full h-9 appearance-none border rounded`,
+            tw`w-full h-9 appearance-none border rounded`,
             tw`py-1 pl-3 pr-8`,
-            !disabled && tw`cursor-pointer hover:border-gray-400`,
+            !disabled && tw`cursor-pointer`,
             error
               ? tw`border-red-500 hover:border-red-500`
-              : tw`border-gray-200`,
+              : tw``,
             tw`focus:outline-none focus:border-transparent focus-visible:ring-2 focus-visible:ring-accent`,
           ]}
+          style={{
+            backgroundColor: '#1c2128',
+            color: '#e6edf3',
+            borderColor: error ? undefined : '#30363d',
+          }}
           {...rest}
           onChange={e => {
             if (onChange != null) {
@@ -60,7 +65,7 @@ export const Select = React.forwardRef<HTMLSelectElement, Props>(
               key={opt.value}
               value={opt.value}
               disabled={opt.disabled}
-              tw="text-fg"
+              style={{ backgroundColor: '#1c2128', color: '#e6edf3' }}
             >
               {opt.text ?? opt.value}
             </option>
