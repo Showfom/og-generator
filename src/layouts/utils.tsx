@@ -55,8 +55,8 @@ export const RLogo: React.FC<{
   const theme = gString(config, "Theme", defaultTheme).toLowerCase();
   const rlogo =
     theme === "dark"
-      ? "https://macdn.net/images/logo-light.svg"
-      : "https://macdn.net/images/logo.svg";
+      ? (process.env.NEXT_PUBLIC_LOGO_LIGHT || "https://macdn.net/images/logo-light.svg")
+      : (process.env.NEXT_PUBLIC_LOGO_DARK || "https://macdn.net/images/logo.svg");
 
   return (
     <img
