@@ -1,11 +1,8 @@
 import { existsSync } from "fs";
 
-const exePath =
-  process.platform === "win32"
-    ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
-    : process.platform === "linux"
-    ? "/usr/bin/google-chrome"
-    : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const WINDOWS_CHROME =
+  "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+const MAC_CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 interface Options {
   args: string[];
@@ -33,18 +30,31 @@ function findChromiumExecutable(): string {
   return "/usr/bin/chromium-browser";
 }
 
+function resolveExecutablePath() {
+  switch (process.platform) {
+    case "win32":
+      return WINDOWS_CHROME;
+    case "linux":
+      return findChromiumExecutable();
+    default:
+      return MAC_CHROME;
+  }
+}
+
 export async function getOptions(isDev: boolean) {
+  const executablePath = resolveExecutablePath();
+
   let options: Options;
   if (isDev) {
     options = {
       args: [],
-      executablePath: exePath,
+      executablePath,
       headless: true,
     };
   } else {
     options = {
       args: ["--no-sandbox", "--font-render-hinting=none"],
-      executablePath: findChromiumExecutable(),
+      executablePath,
       headless: true,
     };
   }
