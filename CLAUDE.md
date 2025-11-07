@@ -81,17 +81,49 @@ yarn clean
 
 ## Tech Stack
 
-- **Framework**: Next.js 10.2.0 (Pages Router, not App Router)
-- **Styling**: styled-components + twin.macro (Tailwind CSS in JS)
-- **Rendering**: Puppeteer Core for HTML-to-image conversion
-- **State**: localStorage via use-local-storage-state
+**Latest versions (recently upgraded):**
+
+- **Framework**: Next.js 16.0.1 (Pages Router with Turbopack, not App Router)
+- **React**: 19.2.0 (latest with improved performance and new features)
+- **TypeScript**: 5.9.3 (enhanced type safety)
+- **Styling**:
+  - styled-components 6.1.19 (CSS-in-JS)
+  - Tailwind CSS 3.4.18 (utility-first CSS)
+  - twin.macro 3.4.1 (combines both, using "styled-components" preset)
+- **Rendering**: Puppeteer Core 24.29.1 (HTML-to-image conversion)
+- **State**: use-local-storage-state 19.5.0 (localStorage hooks)
+- **Markdown**: marked 17.0.0 (note: async API, use `marked.parse(text, { async: false })`)
+- **SEO**: next-seo 7.0.1 (use `generateDefaultSeo` and `generateNextSeo` from "next-seo/pages")
 - **Typography**: Inter font from Google Fonts
 - **Icons**: react-feather
 
 ## Important Notes
 
-- Image dimensions are hardcoded: 2048x1070px (src/constants.ts)
-- Development mode checks `!process.env.RAILWAY_STATIC_URL` (src/pages/api/image.ts:6)
-- Images are cached for 1 year via Cache-Control headers
-- The UI debounces image updates by 200ms to avoid excessive API calls
-- All layout properties must have a `type` of: text, number, select, or color (src/types.ts:23-44)
+- **Image dimensions**: 2048x1070px (OG_WIDTH x OG_HEIGHT in src/constants.ts)
+- **Dev mode detection**: `!process.env.RAILWAY_STATIC_URL` (src/pages/api/image.ts:6)
+- **Cache headers**: Images cached for 1 year via Cache-Control headers
+- **Debouncing**: UI debounces image updates by 200ms to avoid excessive API calls
+- **Layout property types**: Must be one of: text, number, select, or color (src/types.ts:23-44)
+- **Dark theme colors**: Background #0f1419, Text #e6edf3, Input BG #1c2128, Border #30363d
+- **TypeScript config**: Uses `moduleResolution: "bundler"` for modern package.json exports support
+- **Tailwind compatibility**: Using v3.4.18 (not v4) for twin.macro compatibility
+
+## Key API Changes After Upgrade
+
+### next-seo (v4 → v7)
+- Old: `import { DefaultSeo, NextSeo } from "next-seo"`
+- New: `import { generateDefaultSeo, generateNextSeo } from "next-seo/pages"`
+- Use inside `<Head>` component as functions, not components
+
+### use-local-storage-state (v9 → v19)
+- Old: `createLocalStorageStateHook("key", defaultValue)`
+- New: `useLocalStorageState("key", { defaultValue })`
+- Now uses default import and options object
+
+### marked (v2 → v17)
+- Old: `marked(text)` returns string
+- New: `marked.parse(text, { async: false })` - must specify async mode and cast result
+
+### Next.js Link (v10 → v16)
+- Remove nested `<a>` tags inside `<Link>` - Link now renders anchor directly
+- Pass props directly to `<Link>` component
