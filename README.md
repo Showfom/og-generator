@@ -38,6 +38,10 @@ This project has been upgraded to use the latest modern web technologies:
 npm install
 # or
 yarn install
+
+# Copy environment variables
+cp .env.example .env
+# Then edit .env with your custom values (optional)
 ```
 
 ### Development
@@ -100,6 +104,29 @@ src/
 ├── styles/          # Global styles
 └── types.ts         # TypeScript type definitions
 ```
+
+## Configuration
+
+### Environment Variables
+
+The application can be customized using environment variables. Copy `.env.example` to `.env` and modify the values:
+
+```bash
+cp .env.example .env
+```
+
+Available environment variables:
+
+- **NEXT_PUBLIC_SITE_TITLE**: Site title (default: "SB OG Image Generator")
+- **NEXT_PUBLIC_SITE_DESCRIPTION**: Site description
+- **NEXT_PUBLIC_SITE_URL**: Your site URL
+- **NEXT_PUBLIC_TWITTER_HANDLE**: Twitter handle for meta tags
+- **NEXT_PUBLIC_OG_IMAGE**: Default OG image URL
+- **NEXT_PUBLIC_LOGO_LIGHT**: Logo URL for dark theme
+- **NEXT_PUBLIC_LOGO_DARK**: Logo URL for light theme
+- **NEXT_PUBLIC_AUTHORS**: Comma-separated author list (format: `name1:imageUrl1,name2:imageUrl2`)
+
+All environment variables are optional and have sensible defaults.
 
 ## Adding Custom Layouts
 
