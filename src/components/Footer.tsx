@@ -14,11 +14,11 @@ export const Footer: React.FC = () => (
       </Link>{" "}
       from{" "}
       <Link
-        href="https://github.com/railwayapp/og-generator"
+        href="https://github.com/railwayapp/og"
         external
         tw="text-accent hover:underline"
       >
-        railwayapp/og-generator
+        railwayapp/og
       </Link>
     </div>
   </footer>

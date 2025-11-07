@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a dynamic Open Graph (OG) image generator built with Next.js. It generates social media preview images (the images you see when sharing links on Twitter/Discord) via API endpoints. The project is forked from Railway's og-generator and uses Puppeteer to render HTML templates as PNG/JPEG images.
+This is a dynamic Open Graph (OG) image generator built with Next.js. It generates social media preview images (the images you see when sharing links on Twitter/Discord) via API endpoints. The project is forked from Railway's [og](https://github.com/railwayapp/og) and uses Puppeteer to render HTML templates as PNG/JPEG images.
 
 ## Core Architecture
 

@@ -141,7 +141,7 @@ See `src/layouts/simpleLayout.tsx` for a basic example.
 
 ## Credits
 
-This project is forked from [railwayapp/og-generator](https://github.com/railwayapp/og-generator).
+This project is forked from [railwayapp/og](https://github.com/railwayapp/og).
 
 Major enhancements include:
 - Full dependency upgrade to latest versions (Next.js 16, React 19)
