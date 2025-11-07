@@ -124,7 +124,8 @@ Available environment variables:
 - **NEXT_PUBLIC_OG_IMAGE**: Default OG image URL
 - **NEXT_PUBLIC_LOGO_LIGHT**: Logo URL for dark theme
 - **NEXT_PUBLIC_LOGO_DARK**: Logo URL for light theme
-- **NEXT_PUBLIC_AUTHORS**: Comma-separated author list (format: `name1:imageUrl1,name2:imageUrl2`)
+- **NEXT_PUBLIC_AUTHOR_NAMES**: Comma-separated author names (e.g., `Author1,Author2`)
+- **NEXT_PUBLIC_AUTHOR_IMAGES**: Comma-separated author avatar URLs (e.g., `url1,url2`)
 
 All environment variables are optional and have sensible defaults.
 
