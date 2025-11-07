@@ -70,7 +70,8 @@ export const blogLayout: ILayout = {
     {
       name: "Author",
       type: "select",
-      options: authors.map(author => author.name),
+      options: authors.length > 0 ? authors.map(author => author.name) : ["Default Author"],
+      default: authors.length > 0 ? authors[0].name : "Default Author",
     },
   ],
   getCSS,
