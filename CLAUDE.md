@@ -83,16 +83,16 @@ yarn clean
 
 **Latest versions (recently upgraded):**
 
-- **Framework**: Next.js 16.0.1 (Pages Router with Turbopack, not App Router)
-- **React**: 19.2.0 (latest with improved performance and new features)
+- **Framework**: Next.js 16.0.10 (Pages Router with Turbopack, not App Router)
+- **React**: 19.2.3 (latest with improved performance and new features)
 - **TypeScript**: 5.9.3 (enhanced type safety)
 - **Styling**:
   - styled-components 6.1.19 (CSS-in-JS)
   - Tailwind CSS 3.4.18 (utility-first CSS)
   - twin.macro 3.4.1 (combines both, using "styled-components" preset)
-- **Rendering**: Puppeteer Core 24.29.1 (HTML-to-image conversion)
+- **Rendering**: Puppeteer Core 24.33.0 (HTML-to-image conversion)
 - **State**: use-local-storage-state 19.5.0 (localStorage hooks)
-- **Markdown**: marked 17.0.0 (note: async API, use `marked.parse(text, { async: false })`)
+- **Markdown**: marked 17.0.1 (note: async API, use `marked.parse(text, { async: false })`)
 - **SEO**: next-seo 7.0.1 (use `generateDefaultSeo` and `generateNextSeo` from "next-seo/pages")
 - **Typography**: Inter font from Google Fonts
 - **Icons**: react-feather

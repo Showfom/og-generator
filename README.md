@@ -15,29 +15,27 @@ A dynamic Open Graph (OG) image generator service built with Next.js. Generate b
 
 This project has been upgraded to use the latest modern web technologies:
 
-- **Next.js 16.0.1** (Pages Router with Turbopack)
-- **React 19.2.0** - Latest React with improved performance
+- **Next.js 16.0.10** (Pages Router with Turbopack)
+- **React 19.2.3** - Latest React with improved performance
 - **TypeScript 5.9.3** - Enhanced type safety and developer experience
 - **Styled Components 6.1.19** - CSS-in-JS styling
 - **Tailwind CSS 3.4.18** - Utility-first CSS framework
 - **Twin.macro 3.4.1** - Combines Tailwind with styled-components
-- **Puppeteer Core 24.29.1** - Headless browser for image generation
-- **Marked 17.0.0** - Markdown parsing
+- **Puppeteer Core 24.33.0** - Headless browser for image generation
+- **Marked 17.0.1** - Markdown parsing
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+ (recommended: use the version specified in `.nvmrc`)
-- npm or yarn
+- [Bun](https://bun.sh/) package manager
 
 ### Installation
 
 ```bash
 # Install dependencies
-npm install
-# or
-yarn install
+bun install
 
 # Copy environment variables
 cp .env.example .env
@@ -61,9 +59,7 @@ Install the fonts command even if you do not need Chinese or Japanese immediatel
 
 ```bash
 # Run development server
-npm run dev
-# or
-yarn dev
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the application.
@@ -72,15 +68,29 @@ Open [http://localhost:3000](http://localhost:3000) to see the application.
 
 ```bash
 # Create production build
-npm run build
-# or
-yarn build
+bun run build
 
 # Start production server
-npm start
-# or
-yarn start
+bun start
 ```
+
+## Docker
+
+The provided Dockerfile builds on `node:24-trixie-slim`, installs Chromium plus the full Noto font family (with recommends), and copies `.env.example` to `.env` automatically if you have not supplied one.
+
+Build the image with BuildKit/buildx:
+
+```bash
+docker buildx build -t sb-og-generator .
+```
+
+Run the container (default port 3000):
+
+```bash
+docker run --rm -p 3000:3000 --env-file .env sb-og-generator
+```
+
+If you omit `--env-file`, the image will use the `.env` baked from `.env.example`. Mount or override `/app/.env` to supply your own configuration.
 
 ## Usage
 
